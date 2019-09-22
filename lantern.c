@@ -72,7 +72,7 @@ int main( void )
   int count3 = 1;
   int count4 = 0; 
   int mode = 0;
-
+ int i;
   for(;;)
   {
     if(!GPIO_ReadInputPin(SWITCH_PORT, SWITCH)){
@@ -152,8 +152,27 @@ int main( void )
 		   	TIM2_SetCompare2(1);
 		   }
 	   break;
-	   
-	   case 13:
+
+		case 13:	
+				rand_delay = rand() % 1050;
+				if(rand_delay > 500) {
+			  		 delay_ms(rand_delay); 
+				}
+			   if(random1 > 100 && random1 < 200){
+			   	if(random1 % 200) {
+			   	//for(i=random1; i<250; i--) {
+		   			TIM2_SetCompare1(random1);
+		   		//}	
+		   		}
+			   	if(random2 % 200) {
+			   	//for(i=random2; i<250; i--) {
+		   			TIM2_SetCompare2(random2);
+		   		//}	
+		  		 }
+		  	}
+		  	
+	   break;
+	   case 14:
 	   	mode = 0;
 	   break;
 	}
